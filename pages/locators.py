@@ -26,3 +26,4 @@ class ProductPageLocators():
     MESSAGE = (By.CSS_SELECTOR, ".alertinner")
     CART = (By.CLASS_NAME, "basket-mini")
     PRICE = (By.CSS_SELECTOR, ".col-sm-6 .price_color")
+    PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
