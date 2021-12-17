@@ -9,11 +9,13 @@ class ProductPage(BasePage):
 
     def add_product_to_basket(self):
         self.add_to_basket()
-        # self.solve_quiz_and_get_code()
+        self.solve_quiz_and_get_code()
 
         # collect messages about adding item into cart and offer available
         message = self.browser.find_elements(*ProductPageLocators.MESSAGE)
         product_name = self.get_item_name()
+
+        self.browser.implicitly_wait(5)
 
         assert f"{product_name} has been added to your basket" in message[0].text, "No/not_correct message about added item"
         assert "Deferred benefit offer" in message[1].text, "No message about holiday's offer"
