@@ -8,11 +8,13 @@ class ProductPage(BasePage):
 
 
     def add_product_to_basket(self):
+        # self.should_not_be_success_message()  ## success_message should not be presented befor adding item to basket
         self.add_to_basket()
-        self.solve_quiz_and_get_code()
+        # self.solve_quiz_and_get_code()  ## init if quiz required
 
         # collect messages about adding item into cart and offer available
-        message = self.browser.find_elements(*ProductPageLocators.MESSAGE)
+        self.should_be_success_message_about_basket_total()
+        message = self.browser.find_elements(*ProductPageLocators.MESSAGES)
         product_name = self.get_item_name()
 
         self.browser.implicitly_wait(5)
@@ -24,10 +26,6 @@ class ProductPage(BasePage):
         price_text = self.get_product_price()
         basket_price = self.get_basket_total()
         assert price_text == basket_price, "Price in basket does'nt match"
-
-
-
-
 
 
         ### auxiliary methods  ####
@@ -48,3 +46,16 @@ class ProductPage(BasePage):
         return basket_price
 
 
+
+    def should_be_success_message_about_basket_total(self):
+
+        message = self.browser.find_element(*ProductPageLocators.BASKET_MESSAGE)
+        assert "£9.99" in message.text, "NO MESSAGE about basket's total"
+
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_MESSAGE), "Success message is presented, but should not be"
+
+
+    def success_message_should_be_disappeart(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_MESSAGE), "Success message is presented, but should be disappeard"

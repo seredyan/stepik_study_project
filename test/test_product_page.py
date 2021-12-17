@@ -1,14 +1,14 @@
 
 from pages.product_page import ProductPage
 import pytest
-#
-# link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209"
-#
-# def test_guest_can_add_product_to_basket(browser):
-#     page = ProductPage(browser, link + "/?promo=newYear2019")  # init Page Object, set to constructor driver and url
-#     page.open()
-#
-#     page.add_product_to_basket()
+
+link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209"
+
+def test_guest_can_add_product_to_basket(browser):
+    page = ProductPage(browser, link + "/?promo=newYear2019")  # init Page Object, set to constructor driver and url
+    page.open()
+
+    page.add_product_to_basket()
 
 
 
@@ -23,4 +23,8 @@ def test_guest_can_add_product_to_basket_with_promo(browser, link):
     page = ProductPage(browser, link)
     page.open()
 
+
     page.add_product_to_basket()
+
+
+
