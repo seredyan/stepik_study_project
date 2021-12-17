@@ -5,6 +5,7 @@ import pytest
 
 link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209"
 
+@pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)# + "/?promo=newYear2019")  # init Page Object, set to constructor driver and url
     page.open()
@@ -18,7 +19,7 @@ def test_guest_cant_see_success_message(browser):
     page.should_not_be_success_message()
 
 
-
+@pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)# + "/?promo=newYear2019")  # init Page Object, set to constructor driver and url
     page.open()
