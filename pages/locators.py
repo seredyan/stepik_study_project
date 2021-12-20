@@ -6,7 +6,8 @@ from selenium.webdriver.common.by import By
 
 
 class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    pass
+
 
 
 
@@ -28,3 +29,7 @@ class ProductPageLocators():
     PRICE = (By.CSS_SELECTOR, ".col-sm-6 .price_color")
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
     BASKET_MESSAGE = (By.CSS_SELECTOR, ".alertinner p strong")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

@@ -4,9 +4,10 @@ from selenium.webdriver.common.by import By
 from .locators import MainPageLocators
 
 class MainPage(BasePage):
+   def __init__(self, *args, **kwargs):    ## 4_3 step 8
+      super(MainPage, self).__init__(*args, **kwargs)  ## 4_3 step 8
 
-   def go_to_login_page(self):
-      self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
+
 
       # alert = self.browser.switch_to.alert  # in case if alert be added
       # alert.accept()
@@ -15,5 +16,3 @@ class MainPage(BasePage):
       # login_link.click()
 
 
-   def should_be_login_link(self):
-      assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
