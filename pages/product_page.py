@@ -11,7 +11,8 @@ class ProductPage(BasePage):
     def add_product_to_basket(self):
         # self.should_not_be_success_message()  ## success_message should not be presented before adding item to basket
         self.add_to_basket()
-        self.solve_quiz_and_get_code()  ## init if quiz required
+        if "promo=offer" in self.browser.current_url:
+            self.solve_quiz_and_get_code()  ## init if quiz required
 
         # collect messages about adding item into cart and offer available
 

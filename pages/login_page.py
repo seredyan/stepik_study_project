@@ -1,11 +1,31 @@
+import time
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
 
-
-# url = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
-
 class LoginPage(BasePage):
+
+
+    def register_new_user(self, email, password):
+        self.go_to_login_page()
+        self.fill_sign_up_forms(email, password)
+        # time.sleep(5)
+        self.browser.find_element(*LoginPageLocators.REGISTRATION_SUBMIT).click()
+
+    def fill_sign_up_forms(self, email, password):
+        self.change_field_value(*LoginPageLocators.REGISTER_EMAIL, email)
+        self.change_field_value(*LoginPageLocators.REGISTER_PASSWORD, password)
+        self.change_field_value(*LoginPageLocators.REGISTER__CONFIRM_PASSWORD, password)
+
+
+    def change_field_value(self, selector, field_name, text):
+        if text is not None:
+            self.browser.find_element(selector, field_name).click()
+            self.browser.find_element(selector, field_name).clear()
+            self.browser.find_element(selector, field_name).send_keys(text)
+
+
 
     def should_be_login_page(self):  ## if we have too much pages to test we can get united some of them
         self.should_be_login_url()

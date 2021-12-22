@@ -59,6 +59,9 @@ class BasePage():              ## (similar like by barancev's Applicaton)
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not present"
 
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
 
 
     def solve_quiz_and_get_code(self):     ## code for quiz on learning's web sites
