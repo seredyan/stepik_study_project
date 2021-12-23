@@ -8,15 +8,3 @@ class MainPage(BasePage):
 
    def __init__(self, *args, **kwargs):    ## 4_3 step 8
       super(MainPage, self).__init__(*args, **kwargs)  ## 4_3 step 8
-
-
-
-      # alert = self.browser.switch_to.alert  # in case if alert be added
-      # alert.accept()
-
-      # login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-      # login_link.click()
-
-
-   # def click_basket(self):
-   #    self.browser.find_element(*MainPageLocators.VIEW_BASKET).click()

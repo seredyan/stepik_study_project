@@ -10,7 +10,6 @@ class LoginPage(BasePage):
     def register_new_user(self, email, password):
         self.go_to_login_page()
         self.fill_sign_up_forms(email, password)
-        # time.sleep(5)
         self.browser.find_element(*LoginPageLocators.REGISTRATION_SUBMIT).click()
 
     def fill_sign_up_forms(self, email, password):
@@ -35,7 +34,6 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # assert url is correct
-
         assert self.browser.current_url.endswith("/login/"), "login is absent in current url"
 
 

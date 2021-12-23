@@ -10,7 +10,7 @@ def test_guest_can_see_login_form(browser):
 
 
 def test_guest_can_see_register_form(browser):
-    page = LoginPage(browser, link)  # init Page Object, set to constructor driver and url
+    page = LoginPage(browser, link)
     page.open()
     page.should_be_register_form()
 
